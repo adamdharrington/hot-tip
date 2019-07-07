@@ -21,9 +21,9 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run:
           name: install packages
@@ -32,9 +32,9 @@ jobs:
       - run:
           name: Ensure node-sass installed
           command: |
-              ls node_modules/node-sass
-              npm rebuild node-sass
-              ls node_modules/node-sass
+            ls node_modules/node-sass
+            npm rebuild node-sass
+            ls node_modules/node-sass
 
       - save_cache:
           paths:
@@ -44,19 +44,19 @@ jobs:
       # run linter
       - run:
           name: Check for lint
-          command: yarn run lint
+          command: yarn workspace hot-tip lint
 
       # run tests!
       - run:
           name: Check tests
-          command: yarn run test
+          command: yarn workspace hot-tip test --no-watch
 
       # run compilation!
       - run:
           name: Run package compilation
-          command: yarn run compile
+          command: yarn workspace hot-tip build
 
       # try build examples!
       - run:
           name: Build examples
-          command: yarn run examples-build
+          command: yarn workspace examples build

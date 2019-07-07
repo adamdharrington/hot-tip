@@ -14,8 +14,7 @@
     "compile:js": "kcd-scripts build --bundle",
     "build": "yarn compile:js && yarn compile:css",
     "develop": "yarn compile:css && yarn compile:js --watch --no-clean",
-    "examples": "webpack-dev-server --config=examples/webpack.config.js",
-    "examples-build": "webpack -p --config=examples/webpack.config.js"
+    "test": "kcd-scripts test"
   },
   "keywords": [
     "tooltip",
@@ -26,7 +25,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Swrve/hot-tip.git"
+    "url": "https://github.com/adamdharrington/hot-tip.git"
   },
   "devDependencies": {
     "kcd-scripts": "^1.4.0",

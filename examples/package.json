@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "examples",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "HotTip examples",
+  "version": "2.0.0",
   "dependencies": {
     "gatsby": "^2.13.4",
     "gatsby-plugin-manifest": "^2.2.1",
@@ -18,7 +17,9 @@
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "HotTip",
+    "hot-tip"
   ],
   "license": "MIT",
   "scripts": {
@@ -31,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/adamdharrington/hot-tip"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/adamdharrington/hot-tip/issues"
   },
   "resolutions": {
     "react": "16.8.6",

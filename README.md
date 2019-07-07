@@ -1,11 +1,11 @@
-[![HotTip](https://github.com/Swrve/hot-tip/raw/master/examples/hot-tip-sm.png?raw=true)](https://github.com/Swrve/hot-tip)
+[![HotTip](https://github.com/adamdharrington/hot-tip/raw/master/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
 
 ## HotTip - A stress-free redux/react tooltip solution
 
-[![CircleCI](https://circleci.com/gh/Swrve/hot-tip.svg?style=shield)](https://circleci.com/gh/Swrve/hot-tip)
+[![CircleCI](https://circleci.com/gh/adamdharrington/hot-tip.svg?style=shield)](https://circleci.com/gh/adamdharrington/hot-tip)
 [![npm version](https://badge.fury.io/js/hot-tip.svg)](https://npmjs.com/package/hot-tip)
 [![npm](https://img.shields.io/npm/dm/hot-tip.svg)](https://npmjs.com/package/hot-tip)
-[![license](https://img.shields.io/github/license/Swrve/hot-tip.svg)](https://github.com/Swrve/hot-tip/blob/master/LICENCE)
+[![license](https://img.shields.io/github/license/adamdharrington/hot-tip.svg)](https://github.com/adamdharrington/hot-tip/blob/master/LICENCE)
 
 ## Install
 
