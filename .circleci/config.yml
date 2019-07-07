@@ -67,4 +67,4 @@ jobs:
           path: examples/public
 
       - codecov/upload:
-          file: Hot-Tip/coverage
+          file: Hot-Tip/coverage/*.json
