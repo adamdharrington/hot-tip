@@ -14,6 +14,8 @@
     "compile:js": "kcd-scripts build --bundle",
     "build": "yarn compile:js && yarn compile:css",
     "develop": "yarn compile:css && yarn compile:js --watch --no-clean",
+    "format": "kcd-scripts format",
+    "lint": "kcd-scripts lint",
     "test": "kcd-scripts test"
   },
   "keywords": [
