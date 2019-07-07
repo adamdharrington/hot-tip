@@ -3,6 +3,9 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+orbs:
+  codecov: codecov/codecov@1.0.2
+
 jobs:
   build:
     docker:
@@ -47,8 +50,21 @@ jobs:
       - run:
           name: Validate
           command: yarn workspace hot-tip validate
+      - run:
+          name: Pack
+          command: yarn workspace hot-tip pack --filename hot-tip.tgz
 
       # try build examples!
       - run:
           name: Build examples
           command: yarn workspace examples build
+
+      - store_artifacts:
+          paths: Hot-Tip/coverage
+      - store_artifacts:
+          paths: Hot-Tip/hot-tip.tgz
+      - store_artifacts:
+          paths: examples/public
+
+      - codecov/upload:
+          file: Hot-Tip/coverage
