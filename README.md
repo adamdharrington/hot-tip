@@ -1,8 +1,9 @@
-[![HotTip](https://github.com/adamdharrington/hot-tip/raw/master/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
+[![HotTip](https://github.com/adamdharrington/hot-tip/raw/v2-rc/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
 
 ## HotTip - A stress-free redux/react tooltip solution
 
 [![CircleCI](https://circleci.com/gh/adamdharrington/hot-tip.svg?style=shield)](https://circleci.com/gh/adamdharrington/hot-tip)
+[![codecov](https://codecov.io/gh/adamdharrington/hot-tip/branch/v2-rc/graph/badge.svg)](https://codecov.io/gh/adamdharrington/hot-tip)
 [![npm version](https://badge.fury.io/js/hot-tip.svg)](https://npmjs.com/package/hot-tip)
 [![npm](https://img.shields.io/npm/dm/hot-tip.svg)](https://npmjs.com/package/hot-tip)
 [![license](https://img.shields.io/github/license/adamdharrington/hot-tip.svg)](https://github.com/adamdharrington/hot-tip/blob/master/LICENCE)
