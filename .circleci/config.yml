@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -21,42 +21,44 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - yarn-{{ checksum "yarn.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - yarn-
 
       - run:
           name: install packages
-          command: yarn install --ignore-scripts
+          command: yarn install --frozen-lockfile --ignore-scripts
 
       - run:
           name: Ensure node-sass installed
           command: |
-              ls node_modules/node-sass
-              npm rebuild node-sass
-              ls node_modules/node-sass
+            ls node_modules/node-sass
+            npm rebuild node-sass
+            ls node_modules/node-sass
 
       - save_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+            - examples/node_modules
+            - Hot-Tip/node_modules
 
       # run linter
       - run:
           name: Check for lint
-          command: yarn run lint
+          command: yarn workspace hot-tip lint
 
       # run tests!
       - run:
           name: Check tests
-          command: yarn run test
+          command: yarn workspace hot-tip test --no-watch
 
       # run compilation!
       - run:
           name: Run package compilation
-          command: yarn run compile
+          command: yarn workspace hot-tip build
 
       # try build examples!
       - run:
           name: Build examples
-          command: yarn run examples-build
+          command: yarn workspace examples build
