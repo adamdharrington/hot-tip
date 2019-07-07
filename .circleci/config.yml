@@ -1,10 +1,11 @@
-# Javascript Node CircleCI 2.1 configuration file
+# Javascript Node CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.5
+
 jobs:
   build:
     docker:
@@ -59,11 +60,11 @@ jobs:
           command: yarn workspace examples build
 
       - store_artifacts:
-          paths: Hot-Tip/coverage
+          path: Hot-Tip/coverage
       - store_artifacts:
-          paths: Hot-Tip/hot-tip.tgz
+          path: Hot-Tip/hot-tip.tgz
       - store_artifacts:
-          paths: examples/public
+          path: examples/public
 
       - codecov/upload:
           file: Hot-Tip/coverage
