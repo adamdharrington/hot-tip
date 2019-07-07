@@ -43,20 +43,10 @@ jobs:
             - examples/node_modules
             - Hot-Tip/node_modules
 
-      # run linter
+      # run kcd-scripts validate (build, test, coverage lint)
       - run:
-          name: Check for lint
-          command: yarn workspace hot-tip lint
-
-      # run tests!
-      - run:
-          name: Check tests
-          command: yarn workspace hot-tip test --no-watch
-
-      # run compilation!
-      - run:
-          name: Run package compilation
-          command: yarn workspace hot-tip build
+          name: Validate
+          command: yarn workspace hot-tip validate
 
       # try build examples!
       - run:

@@ -1,6 +1,6 @@
-import * as types from "./action-types"
+import * as types from './action-types'
 
-export default function hotTipReducer(state = {}, { type, payload }) {
+export default function hotTipReducer(state = {}, {type, payload}) {
   switch (type) {
     case types.UPDATE_TOOLTIP:
       return {

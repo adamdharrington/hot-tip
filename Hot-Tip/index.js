@@ -1,1 +1,1 @@
-module.exports = require("./dist/hot-tip.cjs.js")
+module.exports = require('./dist/hot-tip.cjs.js')
