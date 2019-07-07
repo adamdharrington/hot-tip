@@ -2,7 +2,10 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 jobs:
   build:
     docker:
@@ -43,22 +46,25 @@ jobs:
             - examples/node_modules
             - Hot-Tip/node_modules
 
-      # run linter
+      # run kcd-scripts validate (build, test, coverage lint)
       - run:
-          name: Check for lint
-          command: yarn workspace hot-tip lint
-
-      # run tests!
+          name: Validate
+          command: yarn workspace hot-tip validate
       - run:
-          name: Check tests
-          command: yarn workspace hot-tip test --no-watch
-
-      # run compilation!
-      - run:
-          name: Run package compilation
-          command: yarn workspace hot-tip build
+          name: Pack
+          command: yarn workspace hot-tip pack --filename hot-tip.tgz
 
       # try build examples!
       - run:
           name: Build examples
           command: yarn workspace examples build
+
+      - store_artifacts:
+          path: Hot-Tip/coverage
+      - store_artifacts:
+          path: Hot-Tip/hot-tip.tgz
+      - store_artifacts:
+          path: examples/public
+
+      - codecov/upload:
+          file: Hot-Tip/coverage/*.json

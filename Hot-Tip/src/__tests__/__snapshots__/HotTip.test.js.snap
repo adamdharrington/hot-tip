@@ -1,6 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components HotTip renders 1`] = `
+exports[`HotTip calls context on hover & blur 1`] = `
+<span
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  text
+</span>
+`;
+
+exports[`HotTip calls context on hover & blur 2`] = `
+<span
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  text
+</span>
+`;
+
+exports[`HotTip renders 1`] = `
 <a
   onMouseOut={[Function]}
   onMouseOver={[Function]}
@@ -8,3 +26,5 @@ exports[`Components HotTip renders 1`] = `
   link
 </a>
 `;
+
+exports[`HotTip renders without tip 1`] = `"text"`;

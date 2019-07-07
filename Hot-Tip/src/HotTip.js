@@ -1,25 +1,25 @@
-import { useContext, useEffect, createElement, cloneElement } from "react"
-import PropTypes from "prop-types"
-import { HotTipContext } from "./HotTipContext"
-import * as types from "./action-types"
-import { getPosition, getBounds } from "./utils"
+import { useContext, useEffect, createElement, cloneElement } from "react";
+import PropTypes from "prop-types";
+import { HotTipContext } from "./HotTipContext";
+import * as types from "./action-types";
+import { getPosition, getBounds } from "./utils";
 
-export default function HotTip({ position = "bottom", tip, children }) {
-  const dispatch = useContext(HotTipContext)[1]
+export default function HotTip({ position, tip, children }) {
+  const dispatch = useContext(HotTipContext)[1];
   useEffect(
     () => () => {
-      dispatch(clearTooltip())
+      dispatch(clearTooltip());
     },
     []
-  )
+  );
 
   function handleMouseEnter(e) {
-    const bounds = getBounds(e)
-    const actualPosition = getPosition(position)(bounds)
+    const bounds = getBounds(e);
+    const actualPosition = getPosition(position)(bounds);
 
-    dispatch(addTooltip(tip, actualPosition))
+    dispatch(addTooltip(tip, actualPosition));
   }
-  const handleMouseOut = () => dispatch(clearTooltip())
+  const handleMouseOut = () => dispatch(clearTooltip());
 
   if (tip) {
     if (typeof children === "string") {
@@ -27,29 +27,29 @@ export default function HotTip({ position = "bottom", tip, children }) {
         "span",
         {
           onMouseOver: handleMouseEnter,
-          onMouseOut: handleMouseOut,
+          onMouseOut: handleMouseOut
         },
         children
-      )
+      );
     }
     return cloneElement(children, {
       onMouseOver: handleMouseEnter,
-      onMouseOut: handleMouseOut,
-    })
+      onMouseOut: handleMouseOut
+    });
   }
-  return children
+  return children;
 }
 
 HotTip.defaultProps = {
   position: "bottom",
-  tip: "",
-}
+  tip: ""
+};
 
 HotTip.propTypes = {
   children: PropTypes.node.isRequired,
   position: PropTypes.oneOf(["top", "bottom", "left", "right"]).isRequired,
-  tip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
-}
+  tip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired
+};
 
 export function addTooltip(tip, position) {
   return {
@@ -57,16 +57,16 @@ export function addTooltip(tip, position) {
     payload: {
       tip,
       visible: true,
-      position,
-    },
-  }
+      position
+    }
+  };
 }
 
 export function clearTooltip() {
   return {
     type: types.UPDATE_TOOLTIP,
     payload: {
-      visible: false,
-    },
-  }
+      visible: false
+    }
+  };
 }
