@@ -1,32 +1,7 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    }
-  },
-  "env": {
-    "browser": true,
-    "es6": true,
-    "commonjs": true,
-    "jest": true,
-    "node": true
-  },
-  "plugins": [
-    "babel",
-    "react",
-    "import"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": "./node_modules/kcd-scripts/eslint.js",
   "rules": {
-    "indent": [2, 2],
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+    "react-hooks/exhaustive-deps": 0,
+    "babel/quotes": 0
   }
 }

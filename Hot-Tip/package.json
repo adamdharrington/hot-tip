@@ -1,0 +1,47 @@
+{
+  "name": "hot-tip",
+  "version": "2.0.0",
+  "description": "A stress-free redux/react tooltip solution",
+  "main": "index.js",
+  "module": "dist/hot-tip.esm.js",
+  "files": [
+    "dist",
+    "index.js"
+  ],
+  "scripts": {
+    "compile:css": "node-sass src/styles.scss > dist/styles.css && npm run compile:copy",
+    "compile:copy": "cp src/styles.scss dist/styles.scss",
+    "compile:js": "kcd-scripts build --bundle",
+    "build": "yarn compile:js && yarn compile:css",
+    "develop": "yarn compile:css && yarn compile:js --watch --no-clean",
+    "examples": "webpack-dev-server --config=examples/webpack.config.js",
+    "examples-build": "webpack -p --config=examples/webpack.config.js"
+  },
+  "keywords": [
+    "tooltip",
+    "redux",
+    "react"
+  ],
+  "author": "Adam Harrington <adamdharrington@gmail.com> (https://github.com/adamdharrington)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Swrve/hot-tip.git"
+  },
+  "devDependencies": {
+    "kcd-scripts": "^1.4.0",
+    "react-test-renderer": "^16.8.6",
+    "node-sass": "^4.12.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
