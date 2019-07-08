@@ -4,4 +4,5 @@ module.exports = {
     description: `The stress-free tooltip solution.`,
   },
   plugins: [`gatsby-plugin-sass`],
+  pathPrefix: `/hot-tip`,
 }
