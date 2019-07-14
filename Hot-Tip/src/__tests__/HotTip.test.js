@@ -22,7 +22,7 @@ describe('HotTip', () => {
 
   it('calls render props', () => {
     const renderPropFn = jest.fn(props => {
-      return <h2 {...props}>'hi'</h2>
+      return <h2 {...props}>hi</h2>
     })
     const component = renderer.create(
       <HotTip tip="click me">{renderPropFn}</HotTip>,

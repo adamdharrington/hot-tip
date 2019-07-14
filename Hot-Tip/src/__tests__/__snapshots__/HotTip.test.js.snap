@@ -35,7 +35,7 @@ exports[`HotTip calls render props 1`] = `
   onMouseOver={[Function]}
   tabIndex={0}
 >
-  'hi'
+  hi
 </h2>
 `;
 
