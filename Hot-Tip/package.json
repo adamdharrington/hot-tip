@@ -30,7 +30,7 @@
     "url": "https://github.com/adamdharrington/hot-tip.git"
   },
   "devDependencies": {
-    "kcd-scripts": "^1.4.0",
+    "kcd-scripts": "^1.5.2",
     "react-test-renderer": "^16.8.6",
     "node-sass": "^4.12.0"
   },
