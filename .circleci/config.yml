@@ -24,9 +24,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - yarn-{{ checksum "yarn.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - yarn-
+            - yarn-{{ checksum "yarn.lock" }}-{{ .Branch }}
 
       - run:
           name: install packages
@@ -40,7 +38,7 @@ jobs:
             ls node_modules/node-sass
 
       - save_cache:
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: yarn-{{ checksum "yarn.lock" }}-{{ .Branch }}
           paths:
             - node_modules
             - examples/node_modules
