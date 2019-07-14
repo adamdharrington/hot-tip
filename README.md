@@ -29,56 +29,10 @@ We weren't happy with tooltip solutions that looked like react components but un
 
 - Using React? HotTip's only dependencies are react, react-dom & prop-types
 - HotTip uses the context api and React synthetic events so it is as fast as you app and never gets out of sync with the DOM (no more orphaned tooltips)
-- Tooltips are accessible and AA compliant out of the box
+- Tooltips are accessible and AAA compliant out of the box
 - HotTip does only one thing, it positions and displays tooltips
 - Positioning is responsive, if you're close to frame boundaries HotTip responds in a predictable way (see examples)
 - HotTip bundles in at about 40kb (10kb compressed)
-
-## Positioning
-
-HotTip has four basic positions _Top_, _Left_, _Right_, and _Bottom_.
-Extra Long tips
-
-There is a maximum width of 200px for a tooltip.
-
-Overflow and wrapping is handled differently for each position Top, Left, Right, and Bottom.
-
-**Position auto-adjustments**
-
-Hot Tip will do some magic to make sure your tooltips are always visible even if the target is close to a page boundary. All positioning utils are available as a named import.
-
-```javascript
-import { positionUtils } from "hot-tip";
-```
-
-## API
-
-HotTip exposes three modules: a context provider, a HotTip component and some utility functions. The two components are _HotTipProvider_ and _HotTip_.
-
-The _positionUtils_ just provide access to the same positioning calculations that HotTip uses in case they are useful elsewhere in an application (why not?).
-
-As the `HotTip` component is the part you'll be reaching for most regularly it is also the default export which means you can import it easily using whatever name you want:
-
-```javascript
-import HotTip from "hot-tip";
-<HotTip tip="I'm a tooltip">hover here</HotTip>;
-// or
-
-import Hover from "hot-tip";
-<Hover tip="I'm a tooltip">hover here</Hover>;
-
-// specify a preferred tooltip position (may be overridden if it would not be visible)
-import HotTip from "hot-tip";
-<HotTip tip="I'm a tooltip" position="right">
-  hover here
-</HotTip>;
-```
-
-## Upgrading from version 1.x
-
-Since v2 there is no longer a dependency on Redux, this made sense to remove given the recent improvements to the Context API and React Hooks.
-
-To upgrade please see the [upgrade guide](upgrading.md).
 
 ## Licence & Contribute
 
