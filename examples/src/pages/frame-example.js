@@ -1,10 +1,10 @@
-import React from "react"
-import { HotTipProvider, HotTip } from "hot-tip"
-import "./frame-example.scss"
+import React from 'react'
+import { HotTipProvider, HotTip } from 'hot-tip'
+import './frame-example.scss'
 
-const text = "A piece of text."
+const text = 'A piece of text.'
 const longText = [
-  "A very long piece of text.",
+  'A very long piece of text.',
   text,
   text,
   text,
@@ -13,39 +13,37 @@ const longText = [
   text,
   text,
   text,
-].join(" ")
+].join(' ')
 
 const IFramePage = () => (
   <HotTipProvider>
-    {/* Place this anchor as close to the root level of your app as possible */}
-    {/* It relies on 'connect' so it must be within a react-redux provider component */}
     <div className="frame-examples">
       <HotTip tip={longText} position="top">
-        <div className="tip top-left">{"TOP"}</div>
+        <div className="tip top-left">{'TOP'}</div>
       </HotTip>
       <HotTip tip={longText} position="top">
-        <div className="tip top-center">{"TOP"}</div>
+        <div className="tip top-center">{'TOP'}</div>
       </HotTip>
       <HotTip tip={longText} position="top">
-        <div className="tip top-right">{"TOP"}</div>
+        <div className="tip top-right">{'TOP'}</div>
       </HotTip>
       <HotTip tip={longText} position="left">
-        <div className="tip left">{"LEFT"}</div>
+        <div className="tip left">{'LEFT'}</div>
       </HotTip>
       <HotTip tip={longText}>
-        <div className="tip center">{"DEFAULT"}</div>
+        <div className="tip center">{'DEFAULT'}</div>
       </HotTip>
       <HotTip tip={longText} position="right">
-        <div className="tip right">{"RIGHT"}</div>
+        <div className="tip right">{'RIGHT'}</div>
       </HotTip>
       <HotTip tip={longText}>
-        <div className="tip bottom-left">{"BOTTOM"}</div>
+        <div className="tip bottom-left">{'BOTTOM'}</div>
       </HotTip>
       <HotTip tip={longText}>
-        <div className="tip bottom-center">{"BOTTOM"}</div>
+        <div className="tip bottom-center">{'BOTTOM'}</div>
       </HotTip>
       <HotTip tip={longText}>
-        <div className="tip bottom-right">{"BOTTOM"}</div>
+        <div className="tip bottom-right">{'BOTTOM'}</div>
       </HotTip>
     </div>
   </HotTipProvider>

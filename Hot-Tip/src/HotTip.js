@@ -1,72 +1,52 @@
-import { useContext, useEffect, createElement, cloneElement } from "react";
-import PropTypes from "prop-types";
-import { HotTipContext } from "./HotTipContext";
-import * as types from "./action-types";
-import { getPosition, getBounds } from "./utils";
+import {useContext, useEffect, createElement, cloneElement} from 'react'
+import PropTypes from 'prop-types'
+import {HotTipContext} from './HotTipContext'
+import {clearTooltip, addTooltip} from './actions'
+import {getPosition, getBounds, getRenderType} from './utils'
 
-export default function HotTip({ position, tip, children }) {
-  const dispatch = useContext(HotTipContext)[1];
-  useEffect(
-    () => () => {
-      dispatch(clearTooltip());
-    },
-    []
-  );
+export default function HotTip({position, tip, children}) {
+  const dispatch = useContext(HotTipContext)[1]
+  useEffect(() => hide, [])
 
-  function handleMouseEnter(e) {
-    const bounds = getBounds(e);
-    const actualPosition = getPosition(position)(bounds);
+  function show(e) {
+    const bounds = getBounds(e)
+    const actualPosition = getPosition(position)(bounds)
 
-    dispatch(addTooltip(tip, actualPosition));
+    dispatch(addTooltip(tip, actualPosition))
   }
-  const handleMouseOut = () => dispatch(clearTooltip());
+  function hide() {
+    dispatch(clearTooltip())
+  }
+  const renderType = getRenderType(children)
+
+  const hotTipProps = {
+    tabIndex: 0,
+    'aria-describedby': 'ht-anchor',
+    onMouseOver: show,
+    onFocus: show,
+    onMouseOut: hide,
+    onBlur: hide,
+  }
 
   if (tip) {
-    if (typeof children === "string") {
-      return createElement(
-        "span",
-        {
-          onMouseOver: handleMouseEnter,
-          onMouseOut: handleMouseOut
-        },
-        children
-      );
+    if (renderType === 'WRAP') {
+      return createElement('span', hotTipProps, children)
     }
-    return cloneElement(children, {
-      onMouseOver: handleMouseEnter,
-      onMouseOut: handleMouseOut
-    });
+    if (renderType === 'RENDER_PROPS') {
+      return children(hotTipProps)
+    }
+    return cloneElement(children, hotTipProps)
   }
-  return children;
+  return children
 }
 
 HotTip.defaultProps = {
-  position: "bottom",
-  tip: ""
-};
-
-HotTip.propTypes = {
-  children: PropTypes.node.isRequired,
-  position: PropTypes.oneOf(["top", "bottom", "left", "right"]).isRequired,
-  tip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired
-};
-
-export function addTooltip(tip, position) {
-  return {
-    type: types.UPDATE_TOOLTIP,
-    payload: {
-      tip,
-      visible: true,
-      position
-    }
-  };
+  position: 'bottom',
+  tip: '',
 }
 
-export function clearTooltip() {
-  return {
-    type: types.UPDATE_TOOLTIP,
-    payload: {
-      visible: false
-    }
-  };
+HotTip.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
+  position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']).isRequired,
+  tip: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
 }
