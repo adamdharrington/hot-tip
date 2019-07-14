@@ -1,6 +1,6 @@
 {
   "name": "hot-tip",
-  "version": "x",
+  "version": "2.0.0",
   "private": true,
   "description": "A stress-free redux/react tooltip solution",
   "main": "Hot-Tip/index.js",

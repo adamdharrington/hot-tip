@@ -106,6 +106,21 @@ export const getBounds = e => {
   }
 }
 
+export function getRenderType(children) {
+  switch (typeof children) {
+    case 'undefined':
+    case 'string':
+      return 'WRAP'
+    case 'function':
+      return 'RENDER_PROPS'
+    default:
+      if (children.length) {
+        return 'WRAP'
+      }
+      return 'CLONE'
+  }
+}
+
 export default {
   getBounds,
   getPosition,

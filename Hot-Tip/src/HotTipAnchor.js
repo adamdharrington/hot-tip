@@ -1,19 +1,15 @@
 import React, {useContext} from 'react'
 import {HotTipContext} from './HotTipContext'
+import HotTipDisplay from './HotTipDisplay'
 
 export default function HotTipAnchor() {
   const [state] = useContext(HotTipContext)
-  const {tip, positionClass, layoutClass, visible, x, y} = state
-  const isNode = typeof tip !== 'function'
-  const className = ['hot-tip', positionClass, layoutClass].join(' ')
+  const {visible} = state
 
-  return (
-    Boolean(visible) && (
-      <div className={className} style={{top: y, left: x}}>
-        <div className="ht-point" />
-        <div className="ht-body">{isNode ? tip : tip()}</div>
-      </div>
-    )
+  return Boolean(visible) ? (
+    <HotTipDisplay />
+  ) : (
+    <div id="ht-anchor" role="tooltip" aria-hidden="true" />
   )
 }
 

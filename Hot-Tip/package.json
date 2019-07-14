@@ -1,7 +1,7 @@
 {
   "name": "hot-tip",
-  "version": "2.0.0",
-  "description": "A stress-free redux/react tooltip solution",
+  "version": "2.0.0-alpha-0",
+  "description": "A stress-free react tooltip solution",
   "main": "index.js",
   "module": "dist/hot-tip.esm.js",
   "files": [
@@ -21,7 +21,6 @@
   },
   "keywords": [
     "tooltip",
-    "redux",
     "react"
   ],
   "author": "Adam Harrington <adamdharrington@gmail.com> (https://github.com/adamdharrington)",
@@ -38,12 +37,12 @@
   "dependencies": {
     "@babel/runtime": "^7.5.4",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }
