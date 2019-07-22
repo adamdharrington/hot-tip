@@ -1,97 +1,43 @@
-[![HotTip](https://github.com/Swrve/hot-tip/raw/master/examples/hot-tip-sm.png?raw=true)](https://github.com/Swrve/hot-tip)
+[![Hot-Tip](https://github.com/adamdharrington/hot-tip/raw/v2-rc/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
 
-HotTip - A stress-free redux/react tooltip solution
------------------
+## Hot-Tip - A stress-free redux/react tooltip solution
 
-[![CircleCI](https://circleci.com/gh/Swrve/hot-tip.svg?style=shield)](https://circleci.com/gh/Swrve/hot-tip)
+[![CircleCI](https://circleci.com/gh/adamdharrington/hot-tip.svg?style=shield)](https://circleci.com/gh/adamdharrington/hot-tip)
+[![codecov](https://codecov.io/gh/adamdharrington/hot-tip/branch/v2-rc/graph/badge.svg)](https://codecov.io/gh/adamdharrington/hot-tip)
 [![npm version](https://badge.fury.io/js/hot-tip.svg)](https://npmjs.com/package/hot-tip)
 [![npm](https://img.shields.io/npm/dm/hot-tip.svg)](https://npmjs.com/package/hot-tip)
-[![license](https://img.shields.io/github/license/Swrve/hot-tip.svg)](https://github.com/Swrve/hot-tip/blob/master/LICENCE)
+[![license](https://img.shields.io/github/license/adamdharrington/hot-tip.svg)](https://github.com/adamdharrington/hot-tip/blob/master/LICENCE)
 
-Install
----------------------------------
+## Install
 
-Install with npm:
-
-```bash
-npm install --save hot-tip
-```
-
-Install with yarn:
+Install with npm or yarn:
 
 ```bash
 yarn add hot-tip
+npm install --save hot-tip
 ```
 
-Examples
----------------------------------
+## Examples
 
-The examples contains all the information here and more.
+The examples provided can be used as a demonstration of package in action or as
+a development environment. Check out the source code and follow the instructions
+in the examples directory to run them locally.
 
-```bash
-yarn run examples
-```
+## Why Hot-Tip?
 
-Why HotTip?
----------------------------------
+We weren't happy with tooltip solutions that looked like react components but under the cover used the DOM api directly (or heaven forbid jQuery).
 
-We weren't happy with tooltip solutions that looked like react components but under the cover used the DOM api directly (or heaven forbid jQuery). HotTip
+### Hot-Tip:
 
-  * Using React & Redux? HotTip's only dependencies are react, redux and react-redux
+- Using React? Hot-Tip's only dependencies are React, React-Dom & Prop-Types
+- Hot-Tip uses the context api and React synthetic events so it is as fast as you app and never gets out of sync with the DOM (no more orphaned tooltips)
+- Tooltips are accessible and AAA compliant out of the box
+- Hot-Tip does only one thing, it positions and displays tooltips
+- Positioning is responsive, if you're close to frame boundaries Hot-Tip responds in a predictable way (see examples)
+- Hot-Tip bundles in at about 40kb (10kb compressed)
 
-  * HotTip plugs directly into your application state, you'll never need to force a redraw
+## Licence & Contribute
 
-  * HotTip does only one thing, it positions and displays tooltips
-
-  * Positioning is responsive, if you're close to frame boundaries HotTip responds in a predictable way (see examples)
-
-  * HotTip bundles in at about 40kb (10kb compressed)
-
-Positioning
----------------------------------
-
-HotTip has four basic positions *Top*, *Left*, *Right*, and *Bottom*.
-Extra Long tips
-
-There is a maximum width of 200px for a tooltip.
-
-Overflow and wrapping is handled differently for each position Top, Left, Right, and Bottom.
-
-**Position auto-adjustments**
-
-Hot Tip will do some magic to make sure your tooltips are always visible even if the target is close to a page boundary. All positioning utils are available as a named import.
-
-```javascript
-import {utils} from 'hot-tip'
-```
-
-API
----------------------------------
-
-HotTip exposes four modules: two components, a reducer and some utils. The two components are *HotTipRoot* and *HotTip*.
-
-The reducer should be included in your redux combineReducers array, it is exported as *hotTipReducer*. The HotTipRoot is connected to a data-store of this exact name so it's advised to use destructuring.
-
-```javascript
-import {HotTip, HotTipRoot, hotTipReducer, utils} from 'hot-tip'
-```
-
-The *utils* just provide access to the same positioning calculations that HotTip uses in case they are useful elsewhere in an application (why not?).
-
-As the `HotTip` component is the part you'll be reaching for most regularly it is also the default export which means you can import it easily using whatever name you want:
-
-```javascript
-import HotTip from 'hot-tip'
-<HotTip tip="I'm a tooltip">hover here</HotTip>
-// or
-
-import Hover from 'hot-tip'
-<Hover tip="I'm a tooltip">hover here</Hover>
-```
-
-Licence & Contribute
----------------------------------
-
-HotTip is on MIT so can be used anywhere with almost no restrictions.
+Hot-Tip is on an MIT licence so it can be used anywhere with almost no restrictions.
 
 To contribute please read the [CONTRIBUTING](CONTRIBUTING.md) file.

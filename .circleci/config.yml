@@ -2,12 +2,15 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -21,42 +24,45 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - yarn-{{ checksum "yarn.lock" }}-{{ .Branch }}
 
       - run:
           name: install packages
-          command: yarn install --ignore-scripts
+          command: yarn install --frozen-lockfile --ignore-scripts
 
       - run:
           name: Ensure node-sass installed
           command: |
-              ls node_modules/node-sass
-              npm rebuild node-sass
-              ls node_modules/node-sass
+            ls node_modules/node-sass
+            npm rebuild node-sass
+            ls node_modules/node-sass
 
       - save_cache:
+          key: yarn-{{ checksum "yarn.lock" }}-{{ .Branch }}
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+            - examples/node_modules
+            - Hot-Tip/node_modules
 
-      # run linter
+      # run kcd-scripts validate (build, test, coverage lint)
       - run:
-          name: Check for lint
-          command: yarn run lint
-
-      # run tests!
+          name: Validate
+          command: yarn workspace hot-tip validate
       - run:
-          name: Check tests
-          command: yarn run test
-
-      # run compilation!
-      - run:
-          name: Run package compilation
-          command: yarn run compile
+          name: Pack
+          command: yarn workspace hot-tip pack --filename hot-tip.tgz
 
       # try build examples!
       - run:
           name: Build examples
-          command: yarn run examples-build
+          command: yarn workspace examples build
+
+      - store_artifacts:
+          path: Hot-Tip/coverage
+      - store_artifacts:
+          path: Hot-Tip/hot-tip.tgz
+      - store_artifacts:
+          path: examples/public
+
+      - codecov/upload:
+          file: Hot-Tip/coverage/*.json
