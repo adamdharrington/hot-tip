@@ -7,24 +7,24 @@ import Source from '../components/show-src'
 import logosrc from '../images/hot-tip.png'
 
 const IndexPage = () => (
-  <HotTipProvider>
+  <div className="hot-tip-body">
     <SEO title="Usage examples" />
-    <div className="hot-tip-body">
-      <header className="header">
-        <h1 aria-label="Hot Tip">
-          <img alt="Hot-Tip" src={logosrc} />
-        </h1>
-      </header>
-      <main className="examples">
+    <header className="header">
+      <h1 aria-label="Hot Tip">
+        <img alt="Hot-Tip" src={logosrc} />
+      </h1>
+    </header>
+    <main className="examples">
+      <HotTipProvider>
         <PositionExamples />
         <ExtraLongExamples />
         <AutoPositioningExamples />
         <ComponentAsTooltipExamples />
         <API />
         <LicenseAndContrib />
-      </main>
-    </div>
-  </HotTipProvider>
+      </HotTipProvider>
+    </main>
+  </div>
 )
 
 const text = 'A piece of text.'
@@ -55,7 +55,7 @@ function LicenseAndContrib() {
       </h2>
       <p>
         {
-          'HotTip is on MIT so can be used anywhere. Credit is always appreciated. Fork and PR to help improve the \
+          'Hot-Tip is on MIT so can be used anywhere. Credit is always appreciated. Fork and PR to help improve the \
         product.'
         }
       </p>
@@ -72,7 +72,7 @@ function API() {
       </h2>
       <p>
         {
-          'HotTip exposes four modules: two components, a reducer and some utils. The two components are '
+          'Hot-Tip exposes four modules: two components, a reducer and some utils. The two components are '
         }
         <HotTip tip="This should be a singleton at the root of your application.">
           <em>{'HotTipRoot'}</em>
@@ -85,7 +85,7 @@ function API() {
       </p>
       <p>
         {
-          'The utils just provide access to the same positioning calculations that HotTip uses in case they are \
+          'The utils just provide access to the same positioning calculations that Hot-Tip uses in case they are \
          useful elsewhere in an application (why not?).'
         }
       </p>

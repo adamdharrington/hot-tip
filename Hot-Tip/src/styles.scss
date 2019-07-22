@@ -2,18 +2,29 @@
   $ht-font-size: 12px !default;
   $ht-pointer-width: 7px !default;
   $ht-pointer-length: 5px !default;
-  $ht-background-color: rgba(76, 94, 108, .9) !default;
+  $ht-background-color: rgba(76, 94, 108, 0.9) !default;
   $ht-text-color: #f3f6f8 !default;
-  $ht-translate-x-left: calc(-100% - #{$ht-pointer-width});
+  $ht-fixed-width: 200px !default;
+  $ht-fixed-padding: 10px !default;
+  $ht-pointer-adjustment: 15px !default;
+  $ht-border-radius: 2px !default;
+  $ht-target-offset: 4px !default;
+
+  $ht-padding-offset: 2 * $ht-fixed-padding;
+  $ht-pointer-margin: $ht-pointer-length + $ht-target-offset;
+  $ht-offset-margin: -$ht-pointer-adjustment - $ht-pointer-width;
+  $ht-translate-x-left: calc(-100% - #{$ht-pointer-margin});
 
   position: absolute;
-  width: 200px;
+  width: $ht-fixed-width;
   pointer-events: none;
   z-index: 999;
   transform-origin: top;
 
   .ht-point {
-    border: $ht-pointer-width solid transparent;
+    border-width: $ht-pointer-length $ht-pointer-width;
+    border-style: solid;
+    border-color: transparent;
     position: absolute;
   }
 
@@ -23,16 +34,16 @@
     font-size: $ht-font-size;
     line-height: 1.17;
     max-width: 100%;
-    margin-top: $ht-pointer-length;
     color: $ht-text-color;
-    padding: 10px;
-    border-radius: 2px;
+    padding: $ht-fixed-padding;
+    border-radius: $ht-border-radius;
+    box-sizing: border-box;
     display: inline-block;
   }
 
   // top & bottom only
   &.centred {
-    margin-left: -100px;
+    margin-left: $ht-fixed-width / -2;
     text-align: center;
 
     .ht-point {
@@ -45,48 +56,49 @@
   }
 
   &.left-offset {
-    margin-left: -20px;
+    margin-left: $ht-offset-margin;
     text-align: left;
 
     .ht-point {
-      left: 15px;
+      left: $ht-pointer-adjustment;
     }
 
     .ht-body {
-      min-width: 30px;
+      min-width: 2 * $ht-pointer-adjustment;
     }
   }
 
   &.right-offset {
-    margin-left: -180px;
+    margin-left: -$ht-fixed-width - $ht-offset-margin;
     text-align: right;
 
     .ht-point {
-      right: 15px;
+      right: $ht-pointer-adjustment;
     }
 
     .ht-body {
-      min-width: 30px;
+      min-width: 2 * $ht-pointer-adjustment;
       text-align: right;
     }
   }
 
   &.bottom {
+    margin-top: $ht-pointer-margin;
+
     .ht-point {
-      border-bottom: $ht-pointer-length solid $ht-background-color;
-      top: -$ht-pointer-width;
+      border-bottom-color: $ht-background-color;
+      top: -2 * $ht-pointer-length;
     }
   }
 
   &.top {
-    transform: translateY(calc(-100% - #{$ht-pointer-width}));
+    transform: translateY(calc(-100% - #{$ht-pointer-margin}));
 
     .ht-point {
-      border-top: $ht-pointer-length solid $ht-background-color;
-      bottom: -$ht-pointer-width - $ht-pointer-length;
+      border-top-color: $ht-background-color;
+      bottom: -2 * $ht-pointer-length;
     }
   }
-
 
   // left & right only
   &.mid {
@@ -98,6 +110,7 @@
 
     .ht-point {
       top: calc(50% - #{$ht-pointer-width});
+      border-width: $ht-pointer-width $ht-pointer-length;
     }
 
     .ht-body {
@@ -106,52 +119,56 @@
   }
 
   &.top-offset {
-    transform: translateY(-20px);
+    transform: translateY(-$ht-padding-offset);
 
     &.left {
-      transform: translate($ht-translate-x-left, -20px);
+      transform: translate($ht-translate-x-left, -$ht-padding-offset);
     }
 
     .ht-point {
-      top: 15px;
+      top: $ht-pointer-adjustment;
     }
 
     .ht-body {
-      min-height: 30px;
+      min-height: 2 * $ht-pointer-adjustment;
     }
   }
 
   &.bottom-offset {
-    transform: translateY(calc(-100% + 20px));
+    transform: translateY(calc(-100% + $ht-padding-offset));
 
     &.left {
-      transform: translate($ht-translate-x-left, calc(-100% + 20px));
+      transform: translate(
+        $ht-translate-x-left,
+        calc(-100% + $ht-padding-offset)
+      );
     }
 
     .ht-point {
-      bottom: 15px;
+      bottom: $ht-pointer-adjustment;
     }
 
     .ht-body {
-      min-height: 30px;
+      min-height: 2 * $ht-pointer-adjustment;
     }
   }
 
   &.left {
     text-align: right;
+    margin-right: $ht-pointer-margin;
 
     .ht-point {
-      border-left: $ht-pointer-length solid $ht-background-color;
-      right: -$ht-pointer-width - $ht-pointer-length;
+      border-left-color: $ht-background-color;
+      right: -2 * $ht-pointer-length;
     }
   }
 
   &.right {
-    margin-left: $ht-pointer-width;
+    margin-left: $ht-pointer-margin;
 
     .ht-point {
-      border-right: $ht-pointer-length solid $ht-background-color;
-      left: -$ht-pointer-width - $ht-pointer-length;
+      border-right-color: $ht-background-color;
+      left: -2 * $ht-pointer-length;
     }
   }
 }

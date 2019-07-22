@@ -6,13 +6,16 @@ body {
   height: 100%;
   background-color: #2f2f2f;
   background-attachment: fixed;
-  background-image: linear-gradient(15deg, lighten($hot, 15), lighten($hot, 30));
+  background-image: linear-gradient(
+    15deg,
+    lighten($hot, 15),
+    lighten($hot, 30)
+  );
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
 
-.hot-tip-body{
-
+.hot-tip-body {
   iframe {
     border: 1px solid $hot;
   }
@@ -64,19 +67,19 @@ body {
   }
 
   .examples {
+    @import 'hot-tip/dist/styles-dark.scss';
+
     margin: 30px auto;
     max-width: 800px;
     min-width: 600px;
     border-radius: 10px;
-    background-color: rgba(#fff, .9);
+    background-color: rgba(#fff, 0.9);
     padding: 10px;
   }
 
   .nav {
-
   }
 
   .footer {
-
   }
 }

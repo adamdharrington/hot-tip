@@ -1,6 +1,6 @@
-[![HotTip](https://github.com/adamdharrington/hot-tip/raw/v2-rc/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
+[![Hot-Tip](https://github.com/adamdharrington/hot-tip/raw/v2-rc/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
 
-## HotTip - A stress-free redux/react tooltip solution
+## Hot-Tip - A stress-free redux/react tooltip solution
 
 [![CircleCI](https://circleci.com/gh/adamdharrington/hot-tip.svg?style=shield)](https://circleci.com/gh/adamdharrington/hot-tip)
 [![codecov](https://codecov.io/gh/adamdharrington/hot-tip/branch/v2-rc/graph/badge.svg)](https://codecov.io/gh/adamdharrington/hot-tip)
@@ -23,19 +23,21 @@ The examples provided can be used as a demonstration of package in action or as
 a development environment. Check out the source code and follow the instructions
 in the examples directory to run them locally.
 
-## Why HotTip?
+## Why Hot-Tip?
 
-We weren't happy with tooltip solutions that looked like react components but under the cover used the DOM api directly (or heaven forbid jQuery). HotTip
+We weren't happy with tooltip solutions that looked like react components but under the cover used the DOM api directly (or heaven forbid jQuery).
 
-- Using React? HotTip's only dependencies are react, react-dom & prop-types
-- HotTip uses the context api and React synthetic events so it is as fast as you app and never gets out of sync with the DOM (no more orphaned tooltips)
+### Hot-Tip:
+
+- Using React? Hot-Tip's only dependencies are React, React-Dom & Prop-Types
+- Hot-Tip uses the context api and React synthetic events so it is as fast as you app and never gets out of sync with the DOM (no more orphaned tooltips)
 - Tooltips are accessible and AAA compliant out of the box
-- HotTip does only one thing, it positions and displays tooltips
-- Positioning is responsive, if you're close to frame boundaries HotTip responds in a predictable way (see examples)
-- HotTip bundles in at about 40kb (10kb compressed)
+- Hot-Tip does only one thing, it positions and displays tooltips
+- Positioning is responsive, if you're close to frame boundaries Hot-Tip responds in a predictable way (see examples)
+- Hot-Tip bundles in at about 40kb (10kb compressed)
 
 ## Licence & Contribute
 
-HotTip is on an MIT licence so it can be used anywhere with almost no restrictions.
+Hot-Tip is on an MIT licence so it can be used anywhere with almost no restrictions.
 
 To contribute please read the [CONTRIBUTING](CONTRIBUTING.md) file.

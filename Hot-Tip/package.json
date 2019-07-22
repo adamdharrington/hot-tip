@@ -9,8 +9,8 @@
     "index.js"
   ],
   "scripts": {
-    "compile:css": "node-sass src/styles.scss > dist/styles.css && npm run compile:copy",
-    "compile:copy": "cp src/styles.scss dist/styles.scss",
+    "compile:css": "node-sass src/ -o dist/ && npm run compile:copy",
+    "compile:copy": "cp src/*.scss dist/",
     "compile:js": "kcd-scripts build --bundle",
     "build": "yarn compile:js && yarn compile:css",
     "develop": "yarn compile:css && yarn compile:js --watch --no-clean",
