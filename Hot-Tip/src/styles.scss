@@ -135,12 +135,12 @@
   }
 
   &.bottom-offset {
-    transform: translateY(calc(-100% + $ht-padding-offset));
+    transform: translateY(calc(-100% + #{$ht-padding-offset}));
 
     &.left {
       transform: translate(
         $ht-translate-x-left,
-        calc(-100% + $ht-padding-offset)
+        calc(-100% + #{$ht-padding-offset})
       );
     }
 
