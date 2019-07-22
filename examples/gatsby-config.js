@@ -5,6 +5,13 @@ module.exports = {
     description: `The stress-free tooltip solution.`,
     lang: 'en-ie',
   },
-  plugins: [`gatsby-plugin-sass`],
+  plugins: [
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        includePaths: ['node_modules', '../node_modules'],
+      },
+    },
+  ],
   pathPrefix: `/hot-tip`,
 }

@@ -1,6 +1,6 @@
-[![HotTip](https://github.com/adamdharrington/hot-tip/raw/v2-rc/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
+[![Hot-Tip](https://github.com/adamdharrington/hot-tip/raw/v2-rc/examples/src/images/hot-tip-sm.png?raw=true)](https://github.com/adamdharrington/hot-tip)
 
-## HotTip - A stress-free redux/react tooltip solution
+## Hot-Tip - A stress-free redux/react tooltip solution
 
 [![CircleCI](https://circleci.com/gh/adamdharrington/hot-tip.svg?style=shield)](https://circleci.com/gh/adamdharrington/hot-tip)
 [![codecov](https://codecov.io/gh/adamdharrington/hot-tip/branch/v2-rc/graph/badge.svg)](https://codecov.io/gh/adamdharrington/hot-tip)
@@ -33,16 +33,18 @@ The examples provided can be used as a demonstration of package in action or as
 a development environment. Check out the source code and follow the instructions
 in the examples directory to run them locally.
 
-## Why HotTip?
+## Why Hot-Tip?
 
-We weren't happy with tooltip solutions that looked like react components but under the cover used the DOM api directly (or heaven forbid jQuery). HotTip
+We weren't happy with tooltip solutions that looked like react components but under the cover used the DOM api directly (or heaven forbid jQuery).
 
-- Using React? HotTip's only dependencies are react, react-dom & prop-types
-- HotTip uses the context api and React synthetic events so it is as fast as you app and never gets out of sync with the DOM (which means no more orphaned tooltips)
+### Hot-Tip:
+
+- Using React? Hot-Tip's only dependencies are CSS (or SASS), React, ReactDom & Prop-Types
+- Hot-Tip uses the context api and React synthetic events so it is as fast as you app and never gets out of sync with the DOM (which means no more orphaned tooltips)
 - Tooltips are accessible and ARIA AA compliant out of the box
-- HotTip does only one thing, it positions and displays tooltips
-- Positioning is responsive, if you're close to frame boundaries HotTip responds in a predictable way (see examples)
-- HotTip bundles in at about 40kb (10kb compressed)
+- Hot-Tip does only one thing, it positions and displays tooltips
+- Positioning is responsive, if you're close to frame boundaries Hot-Tip responds in a predictable way (see examples)
+- Hot-Tip bundles in at about 40kb (10kb compressed)
 
 ## Accessibility
 
@@ -52,7 +54,7 @@ Used correctly Hot-Tip should be AAA accessibility compliant out of the box.
 
 ## Positioning
 
-HotTip has four basic positions _Top_, _Left_, _Right_, and _Bottom_.
+Hot-Tip has four basic positions _Top_, _Left_, _Right_, and _Bottom_.
 Extra Long tips
 
 There is a maximum width of 200px for a tooltip.
@@ -69,9 +71,9 @@ import {positionUtils} from 'hot-tip'
 
 ## API
 
-HotTip exposes three modules: a context provider, a HotTip component and some utility functions. The two components are _HotTipProvider_ and _HotTip_.
+Hot-Tip exposes three modules: a context provider, a Hot-Tip component and some utility functions. The two components are _HotTipProvider_ and _HotTip_.
 
-The _positionUtils_ just provide access to the same positioning calculations that HotTip uses in case they are useful elsewhere in an application (why not?).
+The _positionUtils_ just provide access to the same positioning calculations that Hot-Tip uses in case they are useful elsewhere in an application (why not?).
 
 As the `HotTip` component is the part you'll be reaching for most regularly it is also the default export which means you can import it easily using whatever name you want:
 
@@ -88,6 +90,53 @@ import HotTip from 'hot-tip'
 ;<HotTip tip="I'm a tooltip" position="right">
   hover here
 </HotTip>
+```
+
+## Styling
+
+Hot-Tip can be styled a few ways, by using Sass or CSS. How you import the
+styles will depend on your build configuration:
+
+- importing Sass into existing Sass stylesheets
+- importing Sass via a webpack loader
+- embedding CSS directly into your app
+- importing CSS via a webpack loader
+
+### Sass imports & variables
+
+If you're using node-sass to compile your Sass just ensure you use the
+`--includePaths` flag to include node_modules for module resolution.
+
+If you import into an existing Sass stylesheet you have the added benefit of
+being able to set (override) some of the variables declared by hot-tip; just
+ensure that you declare any overrides befor importing the styles.
+
+i.e.
+
+```scss
+$ht-background-color: rgba(220, 220, 220, 0.9);
+$ht-text-color: #222222;
+$ht-font-size: 14px;
+$ht-pointer-width: 5px;
+$ht-pointer-length: 10px;
+$ht-fixed-padding: 5px;
+$ht-pointer-adjustment: 30px;
+$ht-border-radius: 4px;
+@import 'hot-tip/dist/styles-light.scss';
+```
+
+For a full list of overrides available please review the source.
+
+### Webpack
+
+With Webpack you could import a CSS file directly from any JS file or if you
+also use the sass-loader you could import a SCSS file directly. Just reference
+the correct file from the hot-tip/dist/ directory
+
+```javascript
+import 'hot-tip/dist/styles-dark.css'
+// or via sass-loader
+import 'hot-tip/dist/styles-dark.scss'
 ```
 
 ## Upgrading from version 1.x

@@ -1,3 +1,8 @@
 {
-  "extends": "../.eslintrc"
+  "root": true,
+  "extends": "../node_modules/kcd-scripts/eslint.js",
+  "rules": {
+    "react-hooks/exhaustive-deps": 0,
+    "babel/quotes": 0
+  }
 }

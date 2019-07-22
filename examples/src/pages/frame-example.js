@@ -16,8 +16,8 @@ const longText = [
 ].join(' ')
 
 const IFramePage = () => (
-  <HotTipProvider>
-    <div className="frame-examples">
+  <div className="frame-examples">
+    <HotTipProvider>
       <HotTip tip={longText} position="top">
         <div className="tip top-left">{'TOP'}</div>
       </HotTip>
@@ -45,8 +45,8 @@ const IFramePage = () => (
       <HotTip tip={longText}>
         <div className="tip bottom-right">{'BOTTOM'}</div>
       </HotTip>
-    </div>
-  </HotTipProvider>
+    </HotTipProvider>
+  </div>
 )
 
 export default IFramePage
