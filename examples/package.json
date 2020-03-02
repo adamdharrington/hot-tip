@@ -11,7 +11,7 @@
     "hot-tip": "2.0.0-alpha-0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
+    "react": "^16.13.0",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1"
   },
@@ -42,7 +42,7 @@
     "url": "https://github.com/adamdharrington/hot-tip/issues"
   },
   "resolutions": {
-    "react": "16.8.6",
+    "react": "16.13.0",
     "react-dom": "16.8.6"
   }
 }
