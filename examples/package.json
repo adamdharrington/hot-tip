@@ -6,7 +6,7 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "gatsby": "^2.13.32",
-    "gatsby-plugin-manifest": "^2.2.2",
+    "gatsby-plugin-manifest": "^2.4.28",
     "gatsby-plugin-sass": "^2.1.0",
     "hot-tip": "2.0.0-alpha-0",
     "node-sass": "^4.12.0",
