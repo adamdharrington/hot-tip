@@ -30,7 +30,7 @@
     "url": "https://github.com/adamdharrington/hot-tip.git"
   },
   "devDependencies": {
-    "eslint-config-kentcdodds": "^14.3.4",
+    "eslint-config-kentcdodds": "^16.1.0",
     "kcd-scripts": "^1.5.2",
     "node-sass": "^4.12.0",
     "react-test-renderer": "^16.8.6"
